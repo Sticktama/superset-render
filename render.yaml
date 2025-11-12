@@ -1,22 +1,20 @@
-# render.yaml
-
 services:
   - type: web
     name: superset
     env: docker
     plan: free
     autoDeploy: true
-    healthCheckPath: /
+    port: 8088
     envVars:
-    - key: SUPERSET_SECRET_KEY
-      fromSecret: SUPERSET_SECRET_KEY
-    - key: SUPERSET_ADMIN_USERNAME
-      fromSecret: SUPERSET_ADMIN_USERNAME
-    - key: SUPERSET_ADMIN_FIRSTNAME
-      fromSecret: SUPERSET_ADMIN_FIRSTNAME
-    - key: SUPERSET_ADMIN_LASTNAME
-      fromSecret: SUPERSET_ADMIN_LASTNAME
-    - key: SUPERSET_ADMIN_EMAIL
-      fromSecret: SUPERSET_ADMIN_EMAIL
-    - key: SUPERSET_ADMIN_PASSWORD
-      fromSecret: SUPERSET_ADMIN_PASSWORD
+      - key: SUPERSET_ADMIN_USERNAME
+        fromSecret: SUPERSET_ADMIN_USERNAME
+      - key: SUPERSET_ADMIN_FIRSTNAME
+        fromSecret: SUPERSET_ADMIN_FIRSTNAME
+      - key: SUPERSET_ADMIN_LASTNAME
+        fromSecret: SUPERSET_ADMIN_LASTNAME
+      - key: SUPERSET_ADMIN_EMAIL
+        fromSecret: SUPERSET_ADMIN_EMAIL
+      - key: SUPERSET_ADMIN_PASSWORD
+        fromSecret: SUPERSET_ADMIN_PASSWORD
+      - key: SUPERSET_SECRET_KEY
+        fromSecret: SUPERSET_SECRET_KEY
