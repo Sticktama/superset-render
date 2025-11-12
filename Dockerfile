@@ -15,9 +15,6 @@ RUN apt-get update && \
 # Restore default user
 USER superset
 
-# Superset Secret Key
-ENV SUPERSET_SECRET_KEY="UANgblsBYk4cW9mvAFN07dFY1-9g72CGzEG6v78l13wFYGs_h3LWCoNyByn2YanEvXQex6vPjQgG0r5Yvhsu5A"
-
 # Expose port for Render
 EXPOSE 8088
 
@@ -25,10 +22,11 @@ EXPOSE 8088
 CMD /bin/bash -c "\
   superset db upgrade && \
   superset fab create-admin \
-    --username admin \
-    --firstname Superset \
-    --lastname Admin \
-    --email admin@superset.com \
-    --password admin && \
+    --username ${SUPERSET_ADMIN_USERNAME} \
+    --firstname ${SUPERSET_ADMIN_FIRSTNAME} \
+    --lastname ${SUPERSET_ADMIN_LASTNAME} \
+    --email ${SUPERSET_ADMIN_EMAIL} \
+    --password ${SUPERSET_ADMIN_PASSWORD} && \
   superset init && \
   superset run -h 0.0.0.0 -p 8088"
+

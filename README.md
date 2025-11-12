@@ -15,7 +15,3 @@ This repository contains a minimal Docker setup to run [Apache Superset](https:/
 ### 1. 🔱 Generate a Secure `SUPERSET_SECRET_KEY`
 
 Run this in Python (locally or online):
-
-```python
-import secrets
-print(secrets.token_urlsafe(64))

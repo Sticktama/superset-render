@@ -8,5 +8,15 @@ services:
     autoDeploy: true
     healthCheckPath: /
     envVars:
-      - key: SUPERSET_SECRET_KEY
-        value: UANgblsBYk4cW9mvAFN07dFY1-9g72CGzEG6v78l13wFYGs_h3LWCoNyByn2YanEvXQex6vPjQgG0r5Yvhsu5A
+    - key: SUPERSET_SECRET_KEY
+      fromSecret: SUPERSET_SECRET_KEY
+    - key: SUPERSET_ADMIN_USERNAME
+      fromSecret: SUPERSET_ADMIN_USERNAME
+    - key: SUPERSET_ADMIN_FIRSTNAME
+      fromSecret: SUPERSET_ADMIN_FIRSTNAME
+    - key: SUPERSET_ADMIN_LASTNAME
+      fromSecret: SUPERSET_ADMIN_LASTNAME
+    - key: SUPERSET_ADMIN_EMAIL
+      fromSecret: SUPERSET_ADMIN_EMAIL
+    - key: SUPERSET_ADMIN_PASSWORD
+      fromSecret: SUPERSET_ADMIN_PASSWORD
