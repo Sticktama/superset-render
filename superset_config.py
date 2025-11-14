@@ -154,6 +154,12 @@ CORS_OPTIONS = {
     'origins': ['http://localhost:3000', 'http://localhost:8000', 'http://localhost:8082', 'http://localhost:8088'],
 }
 
+PREFERRED_DATABASES: list[str] = [
+    "PostgreSQL",
+    "MySQL",
+    "SQLite",
+]
+
 SESSION_COOKIE_SAMESITE = None
 SESSION_COOKIE_SECURE = False 
 SESSION_COOKIE_HTTPONLY = False
