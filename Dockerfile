@@ -29,6 +29,3 @@ USER superset
 EXPOSE 8088
 
 CMD ["/app/docker-entrypoint.sh"]
-["/app/docker-entrypoint.sh"]
-["/app/docker-entrypoint.sh"]
-["/app/docker-entrypoint.sh"]
