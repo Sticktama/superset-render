@@ -1,0 +1,31 @@
+<svg viewBox='-36 -25 72 50' xmlns='http://www.w3.org/2000/svg' overflow='visible'>
+  <defs>
+    <filter id='shadow1' x='-50%' y='-50%' width='200%' height='200%'>
+      <feDropShadow dx='1' dy='1' stdDeviation='2' flood-color='rgba(0,0,0,0.3)' />
+    </filter>
+
+    <!-- Curvy inward-pointing star morph path -->
+    <path id='morphPath' 
+          d='M0,-16 C3,-10 10,-3 16,0 10,3 3,10 0,16 -3,10 -10,3 -16,0 -10,-3 -3,-10 0,-16 Z' 
+          stroke-width='7' fill='transparent' filter='url(#shadow1)' pathLength='1'>
+      <animate attributeName='d' dur='2.5s' repeatCount='indefinite'
+        values='
+          M0,-16 C3,-10 10,-3 16,0 10,3 3,10 0,16 -3,10 -10,3 -16,0 -10,-3 -3,-10 0,-16 Z;
+          M0,-16 C3,-10 10,-3 16,0 10,3 3,10 0,16 -3,10 -10,3 -16,0 -10,-3 -3,-10 0,-16 Z;
+          M0,-16 C8,-16 16,-8 16,0 16,8 8,16 0,16 -8,16 -16,8 -16,0 -16,-8 -8,-16 0,-16 Z;
+          M0,-16 C8,-16 16,-8 16,0 16,8 8,16 0,16 -8,16 -16,8 -16,0 -16,-8 -8,-16 0,-16 Z;
+          M0,-16 C3,-10 10,-3 16,0 10,3 3,10 0,16 -3,10 -10,3 -16,0 -10,-3 -3,-10 0,-16 Z;
+          M0,-16 C3,-10 10,-3 16,0 10,3 3,10 0,16 -3,10 -10,3 -16,0 -10,-3 -3,-10 0,-16 Z'
+        keyTimes='0;0.22;0.33;0.55;0.66;1' />
+    </path>
+  </defs>
+
+  <!-- Solid star stroke -->
+  <use href='#morphPath' stroke='rgb(72, 72, 72)' />
+
+  <!-- Faster, shorter spinning dashed outline -->
+  <use href='#morphPath' stroke='rgb(80, 165, 197)' stroke-width='7' stroke-linecap='round'
+       stroke-dasharray='0.15 0.85'>
+    <animate attributeName='stroke-dashoffset' from='0' to='1' dur='0.8s' repeatCount='indefinite' />
+  </use>
+</svg>
