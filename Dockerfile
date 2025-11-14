@@ -5,15 +5,14 @@ USER root
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         libpq-dev \
-        build-essential && \
-    pip install psycopg2-binary && \
+        build-essential \
+        default-libmysqlclient-dev \
+        pkg-config \
+        git && \
+    pip install psycopg2-binary mysqlclient && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN /app/docker/apt-install.sh \
-    git \
-    pkg-config \
-    default-libmysqlclient-dev
 
 
 # Copy custom loading indicator and config
@@ -30,3 +29,6 @@ USER superset
 EXPOSE 8088
 
 CMD ["/app/docker-entrypoint.sh"]
+["/app/docker-entrypoint.sh"]
+["/app/docker-entrypoint.sh"]
+["/app/docker-entrypoint.sh"]
