@@ -1,12 +1,6 @@
 #!/bin/bash
 set -e
 
-# Install local requirements
-if [ -f "/app/requirements-local.txt" ]; then
-  echo "Installing local overrides at /app/requirements-local.txt"
-  pip install --no-cache-dir -r "/app/requirements-local.txt"
-fi
-
 # Run DB migrations
 superset db upgrade
 
