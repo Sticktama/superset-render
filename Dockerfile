@@ -9,7 +9,6 @@ RUN apt-get update && \
         default-libmysqlclient-dev \
         pkg-config \
         git && \
-    pip install psycopg2-binary mysqlclient && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -28,4 +27,5 @@ RUN chmod +x /app/docker-entrypoint.sh
 USER superset
 EXPOSE 8088
 
+HEALTHCHECK CMD ["curl", "-f", "http://localhost:8088/health"]
 CMD ["/app/docker-entrypoint.sh"]
