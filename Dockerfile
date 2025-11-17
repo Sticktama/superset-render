@@ -1,4 +1,4 @@
-FROM apache/superset:latest
+FROM apache/superset:master
 
 # Install PostgreSQL client libraries
 USER root
@@ -11,6 +11,9 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
+    
+RUN uv pip install --no-cache-dir mysqlclient pymysql psycopg2
+
 # Copy custom loading indicator and config
 COPY --chown=superset:superset loading.svg /app/superset-frontend/src/assets/images/loading.svg
 COPY --chown=superset:superset superset_config.py /app/superset_config.py
@@ -22,7 +25,6 @@ RUN chmod +x /app/docker-entrypoint.sh
 
 # Switch to superset user
 USER superset
-RUN uv pip install --no-cache-dir mysqlclient pymysql
 EXPOSE 8088
 
 HEALTHCHECK CMD ["curl", "-f", "http://localhost:8088/health"]
