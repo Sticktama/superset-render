@@ -5,6 +5,9 @@ services:
     plan: free
     autoDeploy: true
     port: 8088
+    # Required for OpenVPN to create network interfaces
+    dockerContext: .
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: SUPERSET_ADMIN_USERNAME
         fromSecret: SUPERSET_ADMIN_USERNAME
@@ -18,3 +21,5 @@ services:
         fromSecret: SUPERSET_ADMIN_PASSWORD
       - key: SUPERSET_SECRET_KEY
         fromSecret: SUPERSET_SECRET_KEY
+    # Secret files are automatically mounted to /etc/secrets/
+    # Add your .ovpn file as a secret file named "client.ovpn"
